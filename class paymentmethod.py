@@ -5,14 +5,18 @@ class PaymentMethod(ABC):
     def pay(self, amount):
         pass
 
-class CreditCardPayment(PaymentMethod):
-    def pay(self, amount):
-        print("Charging {amount} "to credit card")
 
-class Paypal (PaymentMethod):
+class CreditCard(PaymentMethod):
     def pay(self, amount):
-        print("Sending", amount, "via Paypal")
+        print("Charging", amount, "to credit card")
 
-methods = [CreditCard(), Paypal()]
+
+class PayPal(PaymentMethod):
+    def pay(self, amount):
+        print("Sending", amount, "via PayPal")
+
+
+methods = [CreditCard(), PayPal()]
+
 for m in methods:
-    m.pay(49,99)
+    m.pay(49.99)
